@@ -14,7 +14,7 @@ int quick_select(int A[], int n, int k){
 
 // 先頭の要素をピボットとする
   pivot = A[0];
-  for(i = l = 1, r = n; i < r; i++){
+  for(i = l = 0, r = n; i < r; i++){
     if(A[i] < pivot){
       int z = A[l];
       A[l] = A[i];
@@ -29,17 +29,9 @@ int quick_select(int A[], int n, int k){
     } 
   }
 
-  int z = A[l-1];
-  A[l-1] = A[0];
-  A[0] = z;
-
-  if (l > k+1) return quick_select(A, l, k);
+  if (l > k) return quick_select(A, l, k);
   else if (r < k+1) return quick_select(A+r, n-r, k-r);
   else return pivot;
-
-  //if (l > k+1) return quick_select(A+1, l-1, k);
-  //else if (r < k+1) return quick_select(A+r, n-r, k-r);
-  //else return pivot;
 }
 
 int main(){

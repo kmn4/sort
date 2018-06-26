@@ -14,7 +14,7 @@ void quick_sort(int A[], int n){
     if (n == 0) return;
 
     pivot = A[0];
-  for(i = l = 1, r = n; i < r; i++){
+  for(i = l = 0, r = n; i < r; i++){
     if(A[i] < pivot){
       int z = A[l];
       A[l] = A[i];
@@ -29,11 +29,7 @@ void quick_sort(int A[], int n){
     } 
   }
 
-  int z = A[l-1];
-  A[l-1] = A[0];
-  A[0] = z;
-
-  quick_sort(A, l-1);
+  quick_sort(A, l);
   quick_sort(A+r, n-r);
 }
 
