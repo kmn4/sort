@@ -24,7 +24,6 @@ A[0], A[1], ..., A[n-1] の中でk+1番目に小さい値を返す関数
 ただし、Aの中身は書き換えてしまう。
 */
 int quick_select(int A[], int n, int k){
-  //int i, j, pivot;
   int i, l, r, pivot;
   int Ap[(n+4)/5];
 
@@ -34,18 +33,6 @@ int quick_select(int A[], int n, int k){
   if (n % 5) Ap[i] = leqfive(A+i*5, n-i*5, (n-i*5)/2);
 
   pivot = quick_select(Ap, (n+4)/5, (n+4)/5/2);
-  //for(i = j = 0; i < n; i++){
-  //  if(A[i] <= pivot){
-  //    int z = A[j];
-  //    A[j] = A[i];
-  //    A[i] = z;
-  //    j++;
-  //  }
-  //}
-
-  //if(j == k+1) return pivot;
-  //else if(j < k+1) return quick_select(A+j, n-j, k-j);
-  //else return quick_select(A, j-1, k);
 
   for(i = l = 0, r = n; i < r; i++){
     if(A[i] < pivot){
