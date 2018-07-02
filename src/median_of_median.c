@@ -25,7 +25,7 @@ A[0], A[1], ..., A[n-1] の中でk+1番目に小さい値を返す関数
 */
 int quick_select(int A[], int n, int k){
   int i, l, r, pivot;
-  int Ap[(n+4)/5];
+  int Ap[(N+4)/5];
 
   if (n <= 5) return leqfive(A, n, k);
 
@@ -61,7 +61,7 @@ int main(){
   for(i=2;i<N;i++){
     A[i] = (long long int) A[i-1] * A[1] % N;
   }
-  for(i=0;i<N/100;i++){
+  for(i=0;i<N;i++){
     if(quick_select(A, N, i) != i) printf("ERROR %d %d\n", i, quick_select(A, N, i));
 //    printf("%d th element is %d\n", i, quick_select(A, N, i));
   }
